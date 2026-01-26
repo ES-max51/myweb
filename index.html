@@ -1,0 +1,120 @@
+<!DOCTYPE html> 
+<html lang="zh-CN"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>峡谷任务管理 - 登录</title> 
+  <script src="https://cdn.tailwindcss.com"></script> 
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet"> 
+  
+  <!-- Tailwind 配置 --> 
+  <script> 
+    tailwind.config = { 
+      theme: { 
+        extend: { 
+          colors: { 
+            honor: '#FFC107', 
+            honorDark: '#1A1A2E', 
+            honorGold: '#FFD700', 
+            honorRed: '#E53935', 
+            honorBlue: '#1E88E5', 
+          }, 
+          fontFamily: { 
+            honor: ['Ma Shan Zheng', 'STKaiti', 'sans-serif'], 
+          }, 
+        }, 
+      } 
+    } 
+  </script> 
+  
+  <style type="text/tailwindcss"> 
+    @layer utilities { 
+      .content-auto { 
+        content-visibility: auto; 
+      } 
+      .glow { 
+        filter: drop-shadow(0 0 15px currentColor); 
+      } 
+      .btn-honor { 
+        @apply bg-gradient-to-r from-amber-500 to-amber-700 text-white font-bold py-3 px-10 rounded-lg shadow-lg shadow-amber-500/30 transform transition-all duration-300 hover:scale-105 hover:shadow-amber-500/60 relative overflow-hidden; 
+      } 
+      .btn-honor::before { 
+        content: ''; 
+        position: absolute; 
+        top: 0; 
+        left: -100%; 
+        width: 100%; 
+        height: 100%; 
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); 
+        transition: left 0.5s; 
+      } 
+      .btn-honor:hover::before { 
+        left: 100%; 
+      } 
+      .circle-pulse { 
+        animation: pulse 3s ease-in-out infinite; 
+      } 
+      @keyframes pulse { 
+        0% { transform: scale(1); opacity: 1; } 
+        50% { transform: scale(1.1); opacity: 0.8; } 
+        100% { transform: scale(1); opacity: 1; } 
+      } 
+    } 
+  </style> 
+</head> 
+<body class="bg-black min-h-screen overflow-hidden font-honor flex flex-col items-center justify-center"> 
+  <!-- 视频背景 --> 
+  <div class="fixed inset-0 z-0"> 
+    <video autoplay muted loop playsinline class="w-full h-full object-cover">
+      <source src="./img/wxsp.mp4" type="video/mp4">
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black/80"></div>
+  </div> 
+
+  <!-- 顶部LOGO --> 
+  <div class="absolute top-8 left-8 z-10"> 
+    <img src="./img/wxtp.jpg" class="h-12" alt="王者荣耀"> 
+  </div> 
+
+
+  
+  <!-- 中心动态光圈 --> 
+  <div class="relative z-10 mb-10"> 
+    <div class="w-64 h-64 rounded-full bg-blue-500/20 flex items-center justify-center circle-pulse"> 
+      <div class="w-48 h-48 rounded-full bg-blue-500/30 flex items-center justify-center"> 
+        <div class="w-32 h-32 rounded-full bg-blue-500/40 flex items-center justify-center"> 
+          <div class="w-20 h-20 rounded-full bg-blue-500/50 flex items-center justify-center"> 
+            <div class="w-12 h-12 rounded-full bg-blue-500/60 flex items-center justify-center"> 
+              <div class="w-6 h-6 rounded-full bg-blue-500/70"></div> 
+            </div> 
+          </div> 
+        </div> 
+      </div> 
+    </div> 
+  </div> 
+
+  <!-- 选区信息 --> 
+  <div class="relative z-10 text-center mb-6"> 
+    <div class="flex items-center justify-center gap-2 text-red-500 glow mb-1"> 
+      <i class="fa fa-diamond"></i> 
+      <span>手Q68区 凶残之力</span> 
+    </div> 
+  </div> 
+
+  <!-- 开始游戏按钮 --> 
+  <button id="startGameBtn" class="btn-honor text-xl"> 
+    <i class="fa fa-play mr-2"></i>开始闯关
+  </button> 
+
+  <!-- 底部版权信息 --> 
+  <div class="absolute bottom-4 left-0 right-0 z-10 text-center text-xs text-gray-400"> 
+    <p> 著作权人：多多</p> 
+  </div> 
+
+  <script>
+    document.getElementById('startGameBtn').addEventListener('click', function() {
+      window.location.href = 'wzry.html';
+    });
+  </script>
+</body> 
+</html>
